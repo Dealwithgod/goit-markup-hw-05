@@ -484,19 +484,22 @@ img {
   flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
 }
 
-.project-list:hover .overlay {
-  transform: translateY(0%);
-}
+.project-list:hover .overlay,
 .project-list:focus .overlay {
   transform: translateY(0%);
 }
 
+/* to be removed */
+.project-list:focus .overlay {
+  transform: translateY(0%);
+}
 .project-list:focus {
   transform: translateY(0%);
 }
 .overlay:focus {
   transform: translateY(0%);
 }
+/* up to here */
 
 .card-project {
   display: block;
