@@ -32,9 +32,9 @@
             <span class="studi">Studio</span>
           </a>
           <ul class="nav-list list">
-            <li><a class="nav-link link navigation" href="./index.html">Studio</a></li>
-            <li><a class="nav-link link navigation" href="./portfolio.html">Portfolio</a></li>
-            <li><a class="nav-link link navigation" href="">Contacts</a></li>
+            <li class="nav-list-item"><a class="nav-link link navigation active" href="./index.html">Studio</a></li>
+            <li class="nav-list-item"><a class="nav-link link navigation" href="./portfolio.html">Portfolio</a></li>
+            <li class="nav-list-item"><a class="nav-link link navigation" href="">Contacts</a></li>
           </ul>
         </nav>
         <!-- Contact in header -->
@@ -52,7 +52,7 @@
       <section class="hero-section section">
         <div class="container hero-block-container">
           <h1 class="hero-container hero">Effective Solutions for Your Business</h1>
-          <button class="button btn" type="button">Order Service</button>
+          <button class="button btn" type="button" data-modal-open>Order Service</button>
         </div>
       </section>
       <!-- Feature section -->
@@ -503,5 +503,16 @@
         </div>
       </div>
     </footer>
+    <!-- Modal -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-close-btn" data-modal-close>
+          <svg class="modal-close-item" width="8" height="8">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
