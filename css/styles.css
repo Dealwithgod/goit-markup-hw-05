@@ -88,14 +88,14 @@ img {
 }
 .studi,
 .nav-link {
+  position: relative;
   color: var(--header-color);
 }
 .nav-link.active {
   color: var(--secondary-btn-color);
 }
-.nav-list-item {
-  position: relative;
-}
+/* .nav-list-item {
+} */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -103,7 +103,8 @@ img {
   height: 4px;
   border-radius: 2px;
   left: 0;
-  top: 48px;
+  bottom: -1px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link.active::after {
   background-color: var(--secondary-btn-color);
@@ -128,9 +129,6 @@ img {
 .navigation {
   padding-top: var(--indent);
   padding-bottom: var(--indent);
-  transition-property: color;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navigation:hover,
 .navigation:focus {
@@ -158,9 +156,7 @@ img {
   padding-top: var(--indent);
   padding-bottom: var(--indent);
 
-  transition-property: color;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-link-container {
   display: flex;
@@ -261,13 +257,13 @@ img {
   flex: none;
   order: 1;
   flex-grow: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button-filter,
+
 .button,
 .btn {
-  transition-property: color, background-color, box-shadow, border;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-filter:focus,
 .button-filter:hover {
@@ -413,9 +409,7 @@ img {
   background-color: var(--logo-color);
   border-radius: 50%;
   color: var(--light-color);
-  transition-property: background-color, color;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -452,9 +446,7 @@ img {
   color: var(--subtle-text-color);
   border-radius: 4px;
   cursor: pointer;
-  transition-property: color, background-color, box-shadow, border;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -487,16 +479,16 @@ img {
   row-gap: 48px;
 }
 .project-list {
-  /* flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items)); */
+  flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
 }
-.project-list:hover .overlay {
+
+.project-list:hover .overlay,
+.project-list:focus .overlay {
   transform: translateY(0%);
 }
 .card-project {
   display: block;
-  transition-property: box-shadow;
-  transition-delay: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-project:hover,
 .card-project:focus {
@@ -600,7 +592,7 @@ img {
   left: 0;
 
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 
   background-color: rgba(46, 47, 66, 0.4);
   z-index: var(--modal-z-idx);
@@ -609,9 +601,7 @@ img {
   visibility: visible;
   pointer-events: initial;
 
-  transition-property: opacity, visibility;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 300ms;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250 ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -623,23 +613,22 @@ img {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 408px;
-  height: 576px;
+  min-height: 576px;
 
-  background-color: var(--modal-background-color);
+  background: var(--modal-background-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transition: opacity 250ms ease-in-out, scale 500ms ease-in-out;
-  transition-delay: 250ms;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), scale 250ms ease-in-out;
 }
 
 .backdrop.is-hidden .modal {
   opacity: 0;
-  scale: 0.2;
-  transition-delay: 250ms;
+  scale: 0.5;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close-btn {
   position: absolute;
@@ -657,6 +646,13 @@ img {
   color: var(--header-color);
   cursor: pointer;
 }
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--secondary-btn-color);
+  border: none;
+  color: var(--hero-text-color);
+}
 .modal-close-item {
   fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
